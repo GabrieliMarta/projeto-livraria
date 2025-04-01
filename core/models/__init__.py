@@ -1,2 +1,3 @@
 from .user import User
-from .categorias import Categorias
+from .categoria import Categoria
+from .editora import Editora
