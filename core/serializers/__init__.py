@@ -1,2 +1,2 @@
-from .user import User
-from .categoria import Categoria
+from .user import UserSerializer
+from .categoria import CategoriaSerializer
