@@ -1,5 +1,6 @@
 from django.db import models
 
+from .autor import Autor
 from .categoria import Categoria
 from .editora import Editora
 
@@ -11,6 +12,12 @@ class Livro(models.Model):
     preco = models.DecimalField(max_digits=7, decimal_places=2, default=0, null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
     editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
+    editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
+    autores = models.ManyToManyField(Autor, related_name="livros_autor", blank=True)
+    coautor = models.ManyToManyField(Autor, related_name="livros_coautor", blank=True)
+
+
+
 
 
     def __str__(self):
