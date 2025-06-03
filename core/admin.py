@@ -11,7 +11,7 @@ from core.models import Autor, Categoria, Editora, Livro, User
 from cffi import model
 from core import models
 
-
+@admin.register(User)
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
 
@@ -19,7 +19,7 @@ class UserAdmin(BaseUserAdmin):
     list_display = ["email", "name"]
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        (_("Personal Info"), {"fields": ("name", "passage_id")}),
+        (_("Personal Info"), {"fields": ("name", "passage_id", "foto")}),
         (
             _("Permissions"),
             {
@@ -45,6 +45,7 @@ class UserAdmin(BaseUserAdmin):
                     "password1",
                     "password2",
                     "name",
+                    "foto",
                     "is_active",
                     "is_staff",
                     "is_superuser",
@@ -53,7 +54,6 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
     
-
 @admin.register(Autor)
 class AutorAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email')
